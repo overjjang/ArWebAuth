@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="kr" data-bs-theme="auto">
+<head>
+    <script src="/public/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <title>회원 가입</title>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="/public/css/sign-in.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+
+</head>
+<body class="d-flex align-items-center py-4 bg-body-tertiary text-center">
+
+
+<%- include('./partials/color-mode') %>
+
+<style>
+    main {
+        width: 100%;
+        max-width: 420px;
+    }
+</style>
+<main class="w-100 m-auto">
+    <form class="form-signup border rounded p-4" id="signup-form">
+        <h1 class="h3 mb-3 fw-normal">회원 가입</h1>
+        <hr class="mb-3" />
+        <div class="text-start">
+            <div class="mb-2">
+                <label for="inputUsername" class="form-label mb-0 fw-bold">닉네임</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="inputUsername"
+                        aria-describedby="idHelp"
+                        spellcheck="false"
+                        autocomplete="false"
+                />
+                <div class="col-auto"></div>
+                <span id="error-message-username" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-2">
+                <label for="inputId" class="form-label mb-0 fw-bold">아이디</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="inputId"
+                        aria-describedby="idHelp"
+                        spellcheck="false"
+                        autocomplete="false"
+                />
+                <div id="idHelp" class="form-text"></div>
+                <span id="error-message-id" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-2">
+
+                <label for="inputPassword" class="form-label mb-0 fw-bold">
+                    비밀번호
+                </label>
+
+                <input type="password" class="form-control" id="inputPassword" />
+                <div class="col-auto">
+							<span id="pwHelpline" class="form-text">
+								8자 이상의 영문, 숫자, 특수문자를 사용하세요. (최대 50자)
+							</span>
+                </div>
+            </div>
+            <div class="mb-2">
+                <label for="passwordCheck" class="form-label mb-0 fw-bold">비밀번호 확인</label>
+                <input type="password" class="form-control" id="passwordCheck" />
+                <div class="col-auto">
+                    <p id="error-message-password-check" class="text-danger"></p>
+                </div>
+            </div>
+
+            <div class="mb-3 form-check">
+                <input type="radio" class="form-check-input" id="privacyCheck" />
+                <label class="form-check-label" for="privacyCheck">
+                    <b>개인정보 수집 및 이용 동의 </b>
+                    <a href="public/data/privacy_term_0317.txt" class="fw-semibold ms-1 text-muted" target="_blank">보기</a>
+                </label>
+            </div>
+
+            <div class="col-auto">
+                <p id="error-message" class="text-danger"></p>
+            </div>
+        </div>
+        <hr />
+        <button class="w-100 btn btn-lg btn-primary" type="submit" id="registerButton" disabled>
+            회원 가입하기
+        </button>
+    </form>
+    <%- include('./partials/copyright.ejs') %>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@hapi/joi@17.1.1/dist/joi-browser.min.js"></script>
+<script src="/public/js/sign-up.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
