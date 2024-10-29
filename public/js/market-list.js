@@ -3,6 +3,8 @@ $(document).ready(function(){
     $(".image-card").click(function(){
         var id = $(this).attr('id');
         // window.location.href = "/market/detail/" + id;
-        window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        console.log(id);
+        // window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        window.location.href = "https://lunch.overjjang.xyz";
     });
 });
