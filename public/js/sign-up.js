@@ -218,7 +218,8 @@ $(document).ready(() => {
             const key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArQMzx5rts2T4P3vPvP60Y7Q97vPTXo6alyxK+glJ4YZJOI6V/D1cnIzPVa+wcyq3Olli+BPR9DpAuzkkMKWgDlGDpF0jtRS/SFKRiSkc9ExklubfxJ7Wiy5AOVpLsvwdCb7YCbusxvf+z9XsTI51xl3pich/tmo+Zptd99jHaiCpOekryaaWpClW++6nFUUfg5ZZDlT7uxR7MPYey9F8v9pzlt9+7m5B2faTiv0gc1WUqeTpQD6vtiGqTjENvmFdDLWdC999drFHoHeH9fZp8erfcexHcZ1roPKM9ymvYtEamHS76ukW55y+jdq6mVnZTQzXILiBDt15LhZc5wQEYwIDAQAB";
 
             let data_result;
-            if (!window.crypto || !window.crypto.subtle) {
+            const crypto_off = true;
+            if (crypto_off || !window.crypto || !window.crypto.subtle) {
                 alert('주의: 이 브라우저는 최신 보안 기능을 지원하지 않습니다.');
                 //암호화 없이 전송
                 data_result = {data:data, isEncrypted:false};
