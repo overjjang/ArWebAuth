@@ -52,12 +52,17 @@ app.use(helmet.contentSecurityPolicy({
             "https://code.jquery.com/",
             "https://cdn.jsdelivr.net",
             "https://cdnjs.cloudflare.com",
+            "https://dapi.kakao.com/",
+            "http://t1.daumcdn.net/",
+            "'unsafe-eval'"
         ],
         imgSrc: [
             "'self'",
             "https://github.com",
             "https://avatars.githubusercontent.com",
             "http://www.w3.org/2000/svg",
+            "http://t1.daumcdn.net/",
+            "http://mts.daumcdn.net/",
             "data:"
         ],
         upgradeInsecureRequests: null // Disable HTTP to HTTPS redirection
