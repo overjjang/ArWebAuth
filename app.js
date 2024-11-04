@@ -45,24 +45,18 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(helmet.contentSecurityPolicy({
-    directives: {
-        scriptSrc: [
-            "'self'",
-            "https://code.jquery.com/",
-            "https://cdn.jsdelivr.net",
-            "https://cdnjs.cloudflare.com",
-        ],
-        imgSrc: [
-            "'self'",
-            "https://github.com",
-            "https://avatars.githubusercontent.com",
-            "http://www.w3.org/2000/svg",
-            "data:"
-        ],
-        upgradeInsecureRequests: null // Disable HTTP to HTTPS redirection
-    }
-}));
+app.use(helmet.contentSecurityPolicy(
+    {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["*"],
+            imgSrc: ["*", "data:"],
+            frameSrc: ["*"],
+            connectSrc: ["'self'", "https://ep1.adtrafficquality.google"],
+            upgradeInsecureRequests: null // Disable HTTP to HTTPS redirection
+        }
+    })
+);
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use(flash());
