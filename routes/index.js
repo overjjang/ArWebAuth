@@ -29,7 +29,8 @@ router.get("/market-list-example", (req,res)=>{
     res.render("market-list", {
         list:[
 
-        ]
+        ],
+        userData: req.user
     });
 });
 
