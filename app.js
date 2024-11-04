@@ -11,6 +11,8 @@ const flash = require('connect-flash');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const marketRouter = require('./routes/market');
+
 
 const app = express();
 
@@ -62,6 +64,7 @@ app.use(flash());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/auth", authRouter);
+app.use('/market', marketRouter);
 
 // 플래시 메시지를 로컬 변수로 설정
 app.use((req, res, next) => {
@@ -77,7 +80,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 

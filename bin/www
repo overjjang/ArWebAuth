@@ -4,10 +4,13 @@
  * Module dependencies.
  */
 
+require('dotenv').config({
+  path:"../.env"
+});
+
 var app = require('../app');
 var debug = require('debug')('arwebauth:server');
 var http = require('http');
-const path = require('path');
 
 /**
  * Get port from environment and store in Express.
@@ -21,25 +24,6 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-
-//https
-var https = require('https');
-
-var fs = require('fs');
-
-var options = {
-  key: fs.readFileSync(path.join(process.env.KEY_PATH)),
-  cert: fs.readFileSync(process.env.CERT_PATH),
-};
-
-var secureServer = https.createServer(options, app);
-
-/*
-secureServer.listen(3000, function(){
-  console.log('Secure Server listening on port 3000');
-  debug('Listening on ' + 3000);
-});
-*/
 
 /**
  * Listen on provided port, on all network interfaces.
