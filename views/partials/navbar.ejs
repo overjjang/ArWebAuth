@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2 ar-logo" viewBox="0 0 118 94" role="img"><title>[서비스명]</title></svg>
+            <span>[사이트명]</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">홈</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/market-list-example">재휴사 리스트</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+
+                <% if (userData) { %>
+                    <a href="#" class="btn btn-dark me-2">내 프로필</a>
+                    <a href="/auth/sign-out" class="btn btn-bd-primary me-2">로그아웃</a>
+
+                <% } else { %>
+                    <a href="/auth/sign-up" class="btn btn-dark me-2">회원가입</a>
+                    <a href="/auth/sign-in" class="btn btn-bd-primary me-2">로그인</a>
+                <% } %>
+            </form>
+        </div>
+    </div>
+</nav>

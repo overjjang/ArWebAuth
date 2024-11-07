@@ -120,37 +120,39 @@
     </svg>
     <%- include("./partials/color-mode") %>
 <header data-bs-theme="dark">
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2 ar-logo" viewBox="0 0 118 94" role="img"><title>[서비스명]</title></svg>
-        <span>아름스탬프</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">홈</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/market-list-example">재휴사 리스트</a>
-          </li>
-        </ul>
-        <form class="d-flex">
+<!--  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
+<!--    <div class="container-fluid">-->
+<!--      <a class="navbar-brand" href="#">-->
+<!--        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2 ar-logo" viewBox="0 0 118 94" role="img"><title>[서비스명]</title></svg>-->
+<!--        <span>아름스탬프</span></a>-->
+<!--      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--      </button>-->
+<!--      <div class="collapse navbar-collapse" id="navbarCollapse">-->
+<!--        <ul class="navbar-nav me-auto mb-2 mb-md-0">-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link active" aria-current="page" href="#">홈</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="/market-list-example">재휴사 리스트</a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--        <form class="d-flex">-->
 
-          <% if (userData) { %>
-              <a href="#" class="btn btn-dark me-2">내 프로필</a>
-              <a href="/auth/sign-out" class="btn btn-bd-primary me-2">로그아웃</a>
+<!--          <% if (userData) { %>-->
+<!--              <a href="#" class="btn btn-dark me-2">내 프로필</a>-->
+<!--              <a href="/auth/sign-out" class="btn btn-bd-primary me-2">로그아웃</a>-->
 
-          <% } else { %>
-              <a href="/auth/sign-up" class="btn btn-dark me-2">회원가입</a>
-              <a href="/auth/sign-in" class="btn btn-bd-primary me-2">로그인</a>
-          <% } %>
-        </form>
-      </div>
-    </div>
-  </nav>
+<!--          <% } else { %>-->
+<!--              <a href="/auth/sign-up" class="btn btn-dark me-2">회원가입</a>-->
+<!--              <a href="/auth/sign-in" class="btn btn-bd-primary me-2">로그인</a>-->
+<!--          <% } %>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
+<%- include('./partials/navbar.ejs') %>
+
 </header>
 
 <main>
@@ -216,7 +218,11 @@
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
         <h2 class="fw-normal">[서비스명]</h2>
         <p>[서비스명]에 가입해 편리한 학교생활을 누리세요. 학교생활에 도움이 되는 다양한 서비스들을 활용해보세요.</p>
-        <p><a class="btn btn-secondary" href="/auth/sign-in">가입하기 &raquo;</a></p>
+        <% if (userData) {%>
+          <p><a class="btn btn-secondary" href="#">사용하기  &raquo;</a></p>
+        <%}else{%>
+          <p><a class="btn btn-secondary" href="/auth/sign-in">가입하기 &raquo;</a></p>
+        <%}%>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
