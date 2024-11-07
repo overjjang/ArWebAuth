@@ -15,6 +15,11 @@ router.get("/sign-up", (req,res)=> {
 });
 
 router.get("/sign-in", (req,res)=> {
+    //if already logged in
+    if (req.isAuthenticated()) {
+        return res.location(req.get("Referrer") || "/");
+    }
+
     res.render('sign-in');
 });
 
@@ -28,7 +33,6 @@ router.get('/sign-out', (req, res) => {
 //post
 router.post("/sign-in", (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
-
         if (err) {
             return res.status(500).json({ message: "Internal Server Error" });
         }
@@ -46,58 +50,26 @@ router.post("/sign-in", (req, res, next) => {
 
 router.post("/register", async (req,res)=>{
 
-    if(req.body.isEncrypted){
-        const PRIVATE_KEY = process.env.REGISTER_SECRET;
+    let data = req.body.data;
 
-        const PEM = "-----BEGIN PRIVATE KEY-----\n" + PRIVATE_KEY + "\n-----END PRIVATE KEY-----";
-
-        const key = crypto.createPrivateKey({
-            key: PEM,
-            format: 'pem',
-            type: 'pkcs8',
-        });
-
-        let decrypted = crypto.privateDecrypt(
-            {
-                key: key,
-                oaepHash: "sha256",
-                padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
-            },
-            Buffer.from(req.body.data, 'base64')
-        );
-
-        decrypted = decrypted.toString('utf8');
-
-        req.body = JSON.parse(decrypted);
-    } else {
-        req.body = req.body.data;
-    }
-
-
-
-    const { error } = userSchema.registerSchema.validate(req.body);
+    const { error } = userSchema.registerSchema.validate(data);
     if(error) {
         return res.status(400).json({ message: error.details[0].message });
     }
 
     // id 중복 확인 ( mongoose)
-    const user = await User.findOne({id: req.body.id});
+    const user = await User.findOne({id: data.id});
     if(user) {
         return res.status(409).json({ message: "이미 존재하는 아이디입니다." });
     }
-
     //trim
-    req.body.id = req.body.id.trim();
-    req.body.name = req.body.name.trim();
+    data.id = data.id.trim();
+    data.name = data.name.trim();
 
-
-
-
-
-    const password = bcrypt.hashSync(req.body.password, 10);
+    const password = bcrypt.hashSync(data.password, 10);
     User.create({
-        id: req.body.id,
-        name: req.body.name,
+        id: data.id,
+        name: data.name,
         password: password
     })
     .then(user=> {
