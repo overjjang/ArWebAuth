@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 /* GET home page. */
-router.get("/", (req, res)=> {
+router.get("/index", (req, res)=> {
 
     const links = [
         { text: "Index", url: "/" },
@@ -16,6 +16,11 @@ router.get("/", (req, res)=> {
 
     res.render("index", { title: "Express 아름", links: links });
 });
+
+router.get("/", (req,res)=>{
+    res.redirect("/home");
+})
+
 router.get("/home", async (req,res)=>{
         res.render("home", {
         userData: req.user
@@ -25,7 +30,8 @@ router.get("/market-list-example", (req,res)=>{
     res.render("market-list", {
         list:[
 
-        ]
+        ],
+        userData: req.user
     });
 });
 

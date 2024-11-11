@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="kr" data-bs-theme="auto">
   <head><script src="/public/js/color-modes.js"></script>
 
     <meta charset="utf-8">
@@ -24,7 +24,24 @@
         -moz-user-select: none;
         user-select: none;
       }
-
+      .bg-carousel-1 {
+        background-image: url("../public/images/main/ar-airview-min.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: 50%;
+      }
+      .bg-carousel-2 {
+          background-image: url("../public/images/main/ar-airview-2-min.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position-y: 50%;
+      }
+      .ar-logo {
+        background-image: url("public/images/ar-logo.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -103,37 +120,39 @@
     </svg>
     <%- include("./partials/color-mode") %>
 <header data-bs-theme="dark">
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">[사이트명]</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">홈</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form class="d-flex">
+<!--  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
+<!--    <div class="container-fluid">-->
+<!--      <a class="navbar-brand" href="#">-->
+<!--        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2 ar-logo" viewBox="0 0 118 94" role="img"><title>[서비스명]</title></svg>-->
+<!--        <span>아름스탬프</span></a>-->
+<!--      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--      </button>-->
+<!--      <div class="collapse navbar-collapse" id="navbarCollapse">-->
+<!--        <ul class="navbar-nav me-auto mb-2 mb-md-0">-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link active" aria-current="page" href="#">홈</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="/market-list-example">재휴사 리스트</a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--        <form class="d-flex">-->
 
-          <% if (userData) { %>
-              <a href="/auth/sign-out" class="btn btn-bd-primary me-2">로그아웃</a>
+<!--          <% if (userData) { %>-->
+<!--              <a href="#" class="btn btn-dark me-2">내 프로필</a>-->
+<!--              <a href="/auth/sign-out" class="btn btn-bd-primary me-2">로그아웃</a>-->
 
-          <% } else { %>
-              <a href="/auth/sign-up" class="btn btn-dark me-2">회원가입</a>
-              <a href="/auth/sign-in" class="btn btn-bd-primary me-2">로그인</a>
-          <% } %>
-        </form>
-      </div>
-    </div>
-  </nav>
+<!--          <% } else { %>-->
+<!--              <a href="/auth/sign-up" class="btn btn-dark me-2">회원가입</a>-->
+<!--              <a href="/auth/sign-in" class="btn btn-bd-primary me-2">로그인</a>-->
+<!--          <% } %>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </nav>-->
+<%- include('./partials/navbar.ejs') %>
+
 </header>
 
 <main>
@@ -146,22 +165,22 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <svg class="bd-placeholder-img bg-carousel-1" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
         <div class="container">
           <div class="carousel-caption text-start">
-            <h1>예제 제목입니다.</h1>
-            <p class="opacity-75">캐러셀의 첫 번째 슬라이드를 위한 대표적인 플레이스홀더 콘텐츠입니다.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">오늘 가입하세요</a></p>
+            <h1>아름고등학교 [서비스명]</h1>
+            <p class="opacity-75">아름고등학교의 [서비스명]으로 다양한 서비스들를 누려보세요!</p>
+            <p><a class="btn btn-lg btn-primary" href="/auth/sign-up">가입하러 가기</a></p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <svg class="bd-placeholder-img bg-carousel-2" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
         <div class="container">
           <div class="carousel-caption">
-            <h1>또 다른 예제 제목입니다.</h1>
-            <p>캐러셀의 두 번째 슬라이드를 위한 대표적인 플레이스홀더 콘텐츠입니다.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">자세히 알아보기</a></p>
+            <h1>지역 상권과 상생하는 [서비스명]</h1>
+            <p>아름고등학교 [서비스명]은 지역상권과의 연계를 통해 학생들에게 다양한 혜택을 재공합니다.</p>
+            <p><a class="btn btn-lg btn-primary" href="/market-list-example">제휴 상가 리스트</a></p>
           </div>
         </div>
       </div>
@@ -169,8 +188,8 @@
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
         <div class="container">
           <div class="carousel-caption text-end">
-            <h1>하나 더 추가했습니다.</h1>
-            <p>이 캐러셀의 세 번째 슬라이드를 위한 대표적인 플레이스홀더 콘텐츠입니다.</p>
+            <h1>학생 편의</h1>
+            <p>[서비스명]의 다양한 서비스를 누려보세요</p>
             <p><a class="btn btn-lg btn-primary" href="#">갤러리 둘러보기</a></p>
           </div>
         </div>
@@ -197,21 +216,25 @@
     <div class="row">
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Heading</h2>
-        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <h2 class="fw-normal">[서비스명]</h2>
+        <p>[서비스명]에 가입해 편리한 학교생활을 누리세요. 학교생활에 도움이 되는 다양한 서비스들을 활용해보세요.</p>
+        <% if (userData) {%>
+          <p><a class="btn btn-secondary" href="#">사용하기  &raquo;</a></p>
+        <%}else{%>
+          <p><a class="btn btn-secondary" href="/auth/sign-in">가입하기 &raquo;</a></p>
+        <%}%>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Heading</h2>
-        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <h2 class="fw-normal">제휴 상가</h2>
+        <p>[서비스명]과 함께 상생하는 상가들에서 스템프를 적립하고 다양한 할인 혜택을 받아보세요.</p>
+        <p><a class="btn btn-secondary" href="/market-list-example">상가 리스트 보기 &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Heading</h2>
-        <p>And lastly this, the third column of representative placeholder content.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <h2 class="fw-normal">휴대전화에서도 사용하세요</h2>
+        <p>휴대폰에서도 [서비스명]을 편하게 사용하세요.</p>
+        <p><a class="btn btn-secondary" href="#">다운로드하거 가기 &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
